@@ -121,9 +121,15 @@ public class ScrewtapeInterpreter {
           memStack.push(i);
           break;
         case ']':
-          memStack.push(i);
+          if(memStack.isEmpty()){
+            throw new IllegalArgumentException("Please input a program with valid brackets");
+          }
+          bracketMap.put(i, memStack.pop());
           break;
       }
+    }
+    if(!memStack.isEmpty()){
+      throw new IllegalArgumentException("Please input a program with valid brackets");
     }
 
 
