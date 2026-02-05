@@ -39,6 +39,19 @@ public class Node {
    */
   public Node(List<Integer> list) {
     // TODO: implement this
+    if(list.size() == 0){
+      throw new IllegalArgumentException();
+    }else{
+      Node head = new Node(list.get(0));
+      for(int i = 1; i < list.size(); i++){
+        head.next = new Node(list.get(i));
+        head.next.prev = head;
+        head = head.next;
+      }
+      while(head.prev != null){
+        head = head.prev;
+      }
+    }
   }
 
   /**
