@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.platform.engine.support.hierarchical.Node;
 
 /**
  * Represents a Node in a doubly linked list.
