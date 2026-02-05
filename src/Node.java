@@ -1,5 +1,7 @@
 import java.util.List;
 
+import org.junit.platform.engine.support.hierarchical.Node;
+
 /**
  * Represents a Node in a doubly linked list.
  */
@@ -39,19 +41,20 @@ public class Node {
    */
   public Node(List<Integer> list) {
     // TODO: implement this
-    if(list.size() == 0){
+    if (list.size() == 0 || list == null) {
       throw new IllegalArgumentException();
     }else{
-      Node head = new Node(list.get(0));
+      value = list.get(0);
+      prev = null;
+      Node creator = this;
       for(int i = 1; i < list.size(); i++){
-        head.next = new Node(list.get(i));
-        head.next.prev = head;
-        head = head.next;
-      }
-      while(head.prev != null){
-        head = head.prev;
+        Node newNode = new Node(list.get(i));
+        newNode.prev = creator;
+        creator.next = newNode;
+        creator = creator.next;
       }
     }
+    
   }
 
   /**

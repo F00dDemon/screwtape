@@ -5,6 +5,6 @@ public class Main {
         List<Integer> values = List.of(5, 7, 3);
         Node head = new Node(values);
 
-        System.out.println(head.next.value);
+        System.out.println("     : " + head.value);
     }
 }
