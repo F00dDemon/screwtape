@@ -193,10 +193,9 @@ public class ScrewtapeInterpreter {
           result += ""+((char)getTapePointerValue());
           break;
         case ']':
-          int move = bracketMap.get(creationPointer);
-          moveTapePointerToHead();
-          for(int i = 0 ; i< move; i++){
-            tapePointer = tapePointer.next;
+          if(tapePointer.value !=0){
+            int move = bracketMap.get(creationPointer);
+            creationPointer = move;
           }
           break;
       }
