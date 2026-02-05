@@ -13,7 +13,7 @@ class ScrewtapeInterpreterTest {
     // Arrange
     ScrewtapeInterpreter interpreter = new ScrewtapeInterpreter();
     String program = ">[+>[+-]<]";
-
+//1 4 7 9
     Map<Integer, Integer> expectedMap = new HashMap<>();
     expectedMap.put(9, 1);
     expectedMap.put(7, 4);

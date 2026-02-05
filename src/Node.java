@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.platform.engine.support.hierarchical.Node;
@@ -65,6 +66,13 @@ public class Node {
    */
   public List<Integer> toList() {
     // TODO: Implement this
-    return null;
+    List<Integer> list = new ArrayList<>();
+    Node current = this;
+    while(current.next != null){
+      list.add(current.value);
+      current = current.next;
+    }
+    list.add(current.value);
+    return list;
   }
 }

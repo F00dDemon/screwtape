@@ -43,6 +43,16 @@ class NodeTest {
 
   
   // TODO: Add test for list constructor when passed null list
+  @Test
+  void testListConstructorWithNullList() {
+
+    // Act and Assert
+    assertThrows(
+        NullPointerException.class,
+        () -> new Node(null),
+        "Expected constructor to throw NullPointerException for an empty list."
+    );
+  }
   // TODO: Add at least one more test for list constructor that would be useful and cover new ground.
 
 
@@ -68,5 +78,37 @@ class NodeTest {
   }
 
   // TODO: Add test for Node with no next or prev
+  @Test
+  void testToListWithNoNextOrPrev() {
+    // Arrange
+    Node head = new Node(5);
+    head.next = null;
+    head.prev = null;
+
+    // Act
+    List<Integer> values = head.toList();
+
+    // Assert
+    assertEquals(List.of(5), values);
+  }
   // TODO: Add at least one more test for list constructor that would be useful and cover new ground.
+
+  @Test
+  void testToListWithMiddleValue() {
+    // Arrange
+    Node head = new Node(5);
+    Node middle = new Node(7);
+    Node tail = new Node(3);
+
+    head.next = middle;
+    middle.prev = head;
+    middle.next = tail;
+    tail.prev = middle;
+
+    // Act
+    List<Integer> values = middle.toList();
+
+    // Assert
+    assertEquals(List.of(7, 3), values);
+  }
 }
